@@ -1,0 +1,10 @@
+.sections {
+    background: rgb(234, 57, 187);
+    padding: 40px;
+    border-style: solid;
+    border-radius: 10px;
+    width: 40%;
+    margin-bottom: 100px;
+    display: inline-block;
+    text-align: center;
+}

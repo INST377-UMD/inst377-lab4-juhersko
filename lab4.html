@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab-4 INST377 - Form Validation</title>
+    <link rel="stylesheet" href="lab4.css">
+</head>
+<body style="background-color:rgb(0, 225, 255);">
+    
+<header>
+    <h1> INST377 LAB4 </h1>
+</header>
+
+    <div class="sections"> 
+        <form action="#" method="POST"> 
+            <label for="name"> Name: </label>
+            <input type="text" id="name" name="name" required>
+            <button type="button" onclick="showAlert()">Alert Me!</button>
+        </form>
+    </div>
+
+    <div class="sections">
+        <button type="button" onclick="changeColor()">Change Color</button>
+    </div>
+
+    <div class="sections">
+        <form action="#" method="POST"> 
+            <label for="TextTester"> Text Tester </label>
+            <input type="text" id="TextTester" name="TextTester">
+            <button type="button" onclick="validateText()">Validate Text</button>
+        </form>
+    </div>
+
+    <div class="sections">
+        <button type="button" onclick="addText()">Add Text</button>
+    </div>
+
+</div>
+
+<script>
+    // alert
+    function showAlert() {
+        let nameInput = document.getElementById("name").value; 
+        if (nameInput.trim() === "") { 
+            alert("ENTER FIRST NAME!!!!!");
+            return false;
+        }
+        alert("Hi " + nameInput + "!");
+        return true;
+    }
+
+// change background
+let isOriginalColor = true;
+function changeColor() {
+    if(isOriginalColor) {
+        document.body.style.backgroundColor = '#0530ad'; 
+    } else {
+        document.body.style.backgroundColor = 'rgb(0, 225, 255)'; 
+    }
+    isOriginalColor = !isOriginalColor;
+}
+
+    // validate
+    function validateText() {
+        const textInput = document.getElementById("TextTester").value;
+        var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        if (validation.test(textInput)) {
+            alert("Special characters are not allowed!");
+        } else {
+            alert("Text is valid!");
+        }
+    }
+    // add text 
+    function addText() {
+    const heading = document.querySelector('h1');
+    // only allowed to add it once
+    if (!heading.textContent.includes("Add Text")) {
+        heading.textContent += "Add Text";
+    }
+}
+
+</script>
+</body>
+</html>
